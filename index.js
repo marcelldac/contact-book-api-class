@@ -13,7 +13,7 @@ app.use(cors());
 // MODEL
 //
 // contact = {
-//  id: strign,
+//  id: string,
 //  name: string,
 //  phone: string,
 //  isActive: boolean

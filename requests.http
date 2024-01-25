@@ -1,0 +1,10 @@
+GET http://localhost:3000/contact
+###
+POST http://localhost:3000/contact
+Content-Type: application/json
+
+{
+    "name":"Marcell",
+    "phone":"123123",
+    "isActive": true
+}

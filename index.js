@@ -69,7 +69,7 @@ app.post("/contact", (request, response) => {
     contacts.push(payload);
 
     return response
-      .status(statusCode.Ok)
+      .status(statusCode.Created)
       .json({ message: payload, error: false });
   } catch (error) {
     return response

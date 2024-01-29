@@ -2,7 +2,7 @@
   "name": "contact-api-js",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "marcelldac <dacmarcell@gmail.com>",
+  "author": "marcelldac <dacmarcell@gmail.com>, rodolphoreis <rodolphoreis@live.com> ",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",

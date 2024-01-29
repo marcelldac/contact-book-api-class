@@ -33,6 +33,7 @@ const statusCode = {
   Ok: 200,
   Created: 201,
   ServerError: 500,
+  NotFound: 404,
 };
 
 let contacts = [];

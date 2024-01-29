@@ -38,6 +38,16 @@ const statusCode = {
 
 let contacts = [];
 
+function findIndexById(id) {
+  const index = contacts.findIndex((element) => {
+    return element.id === id;
+  });
+  if (index === -1) {
+    return 404;
+  }
+  return index;
+}
+
 app.get("/contact", (request, response) => {
   try {
     return response

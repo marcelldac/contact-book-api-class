@@ -53,7 +53,7 @@ app.post("/contact", (request, response) => {
   try {
     const contact = request.body;
     const id = crypto.randomUUID();
-    const createdAt = formatRelative(subDays(new Date(), 3), new Date(), {
+    const updatedAt = formatRelative(subDays(new Date(), 3), new Date(), {
       locale: pt,
     });
 
@@ -62,8 +62,7 @@ app.post("/contact", (request, response) => {
       name: contact.name,
       phone: contact.phone,
       isActive: contact.isActive,
-      updatedAt: null,
-      createdAt,
+      updatedAt,
     };
 
     contacts.push(payload);

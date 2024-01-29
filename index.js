@@ -77,7 +77,38 @@ app.post("/contact", (request, response) => {
   }
 });
 
-app.put("/contact/:id", () => {});
+app.put("/contact/:id", (request, response) => {
+  try {
+    const { id } = request.params;
+    const { name, phone, isActive } = request.body;
+    const updatedAt = formatRelative(subDays(new Date(), 3), new Date(), {
+      locale: pt,
+    });
+    const index = findIndexById(id);
+    if (index === statusCode.NotFound) {
+      return response
+        .status(statusCode.NotFound)
+        .json({ message: "Index Not Found", error: true });
+    }
+    const newPayload = {
+      id,
+      name,
+      phone,
+      isActive,
+      updatedAt,
+    };
+    contacts[index] = newPayload;
+
+    return response
+      .status(statusCode.Ok)
+      .json({ message: newPayload, error: false });
+  } catch (error) {
+    return response
+      .status(statusCode.ServerError)
+      .json({ message: error, error: true });
+  }
+});
+
 app.patch("/contact/:id", () => {});
 app.delete("/contact/:id", () => {});
 

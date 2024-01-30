@@ -16,7 +16,7 @@ app.use(cors());
 //  id: string,
 //  name: string,
 //  phone: string,
-//  isActive: boolean
+//  isActive: string,
 //  updatedAt: string | null
 //  createdAt: string
 // }
@@ -120,7 +120,41 @@ app.put("/contact/:id", (request, response) => {
   }
 });
 
-app.patch("/contact/:id", () => {});
+app.patch("/contact/:id", (request, response) => {
+  try {
+    const { id } = request.params;
+    const { name, phone, isActive } = request.body;
+    const updatedAt = formatRelative(subDays(new Date(), 3), new Date(), {
+      locale: pt,
+    });
+
+    const index = findIndexById(id);
+
+    if (index === statusCode.NotFound) {
+      return response
+        .status(statusCode.NotFound)
+        .json({ message: "Not Found", error: true });
+    }
+    const newPayload = {
+      id,
+      name: name || contacts[index].name,
+      phone: phone || contacts[index].phone,
+      isActive: isActive || contacts[index].isActive,
+      updatedAt,
+    };
+
+    contacts[index] = newPayload;
+
+    return response
+      .status(statusCode.Ok)
+      .json({ message: newPayload, error: false });
+  } catch (error) {
+    return response
+      .status(statusCode.NotFound)
+      .json({ message: error, error: true });
+  }
+});
+
 app.delete("/contact/:id", () => {});
 
 app.listen(PORT, () => {

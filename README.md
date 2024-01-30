@@ -23,7 +23,7 @@ Made with Javascript and the Express lib for node.
 | `id`      | `string` | Not present in body request 
 | `name`      | `string` | **Mandatory**. present in body request.|
 | `phone`      | `string` | **Mandatory**. present in body request.|
-| `isActive`      | `boolean` | **Mandatory**. present in body request.|
+| `isActive`      | `string` | **Mandatory**. present in body request.|
 | `updatedAt`      | `string - null` | Not present in body request.|
 | `createdAt`      | `string` | Not present in body request.|
 

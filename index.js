@@ -33,9 +33,20 @@ const statusCode = {
   Ok: 200,
   Created: 201,
   ServerError: 500,
+  NotFound: 404,
 };
 
 let contacts = [];
+
+function findIndexById(id) {
+  const index = contacts.findIndex((element) => {
+    return element.id === id;
+  });
+  if (index === -1) {
+    return 404;
+  }
+  return index;
+}
 
 app.get("/contact", (request, response) => {
   try {
@@ -53,7 +64,7 @@ app.post("/contact", (request, response) => {
   try {
     const contact = request.body;
     const id = crypto.randomUUID();
-    const createdAt = formatRelative(subDays(new Date(), 3), new Date(), {
+    const updatedAt = formatRelative(subDays(new Date(), 3), new Date(), {
       locale: pt,
     });
 
@@ -62,8 +73,7 @@ app.post("/contact", (request, response) => {
       name: contact.name,
       phone: contact.phone,
       isActive: contact.isActive,
-      updatedAt: null,
-      createdAt,
+      updatedAt,
     };
 
     contacts.push(payload);
@@ -78,7 +88,38 @@ app.post("/contact", (request, response) => {
   }
 });
 
-app.put("/contact/:id", () => {});
+app.put("/contact/:id", (request, response) => {
+  try {
+    const { id } = request.params;
+    const { name, phone, isActive } = request.body;
+    const updatedAt = formatRelative(subDays(new Date(), 3), new Date(), {
+      locale: pt,
+    });
+    const index = findIndexById(id);
+    if (index === statusCode.NotFound) {
+      return response
+        .status(statusCode.NotFound)
+        .json({ message: "Index Not Found", error: true });
+    }
+    const newPayload = {
+      id,
+      name,
+      phone,
+      isActive,
+      updatedAt,
+    };
+    contacts[index] = newPayload;
+
+    return response
+      .status(statusCode.Ok)
+      .json({ message: newPayload, error: false });
+  } catch (error) {
+    return response
+      .status(statusCode.ServerError)
+      .json({ message: error, error: true });
+  }
+});
+
 app.patch("/contact/:id", () => {});
 app.delete("/contact/:id", () => {});
 

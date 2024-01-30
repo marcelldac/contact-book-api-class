@@ -8,3 +8,12 @@ Content-Type: application/json
     "phone":"123123",
     "isActive": "true"
 }
+###
+PUT http://localhost:3000/contact/id
+Content-Type: application/json
+
+{
+    "name":"Reis",
+    "phone":"12vchjdbs",
+    "isActive": "true"
+}

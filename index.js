@@ -16,7 +16,7 @@ app.use(cors());
 //  id: string,
 //  name: string,
 //  phone: string,
-//  isActive: boolean
+//  isActive: string,
 //  updatedAt: string | null
 //  createdAt: string
 // }

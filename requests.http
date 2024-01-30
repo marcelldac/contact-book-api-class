@@ -17,3 +17,12 @@ Content-Type: application/json
     "phone":"12vchjdbs",
     "isActive": "true"
 }
+###
+PATCH http://localhost:3000/contact/8251c1f0-3035-4927-b7f4-68b148a2fc20
+Content-Type: application/json
+
+{
+    "name": "Fernanda Reis",
+   "phone":"12vchjdbs"
+
+}

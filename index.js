@@ -34,6 +34,7 @@ const statusCode = {
   Created: 201,
   ServerError: 500,
   NotFound: 404,
+  NoContent: 204,
 };
 
 let contacts = [];

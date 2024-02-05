@@ -34,6 +34,7 @@ const statusCode = {
   Created: 201,
   ServerError: 500,
   NotFound: 404,
+  NoContent: 204,
 };
 
 let contacts = [];
@@ -155,7 +156,24 @@ app.patch("/contact/:id", (request, response) => {
   }
 });
 
-app.delete("/contact/:id", () => {});
+app.delete("/contact/:id", (request, response) => {
+  try {
+    const { id } = request.params;
+    const index = findIndexById(id);
+    if (index === statusCode.NotFound) {
+      return response
+        .status(statusCode.NotFound)
+        .json({ message: "Not Found", error: true });
+    }
+
+    contacts.splice(index, 1);
+    return response.status(statusCode.NoContent).send();
+  } catch (error) {
+    response
+      .status(statusCode.ServerError)
+      .json({ message: error, error: true });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

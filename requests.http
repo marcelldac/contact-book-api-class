@@ -9,7 +9,7 @@ Content-Type: application/json
     "isActive": "true"
 }
 ###
-PUT http://localhost:3000/contact/id
+PUT http://localhost:3000/contact/d16a1f13-7436-4e73-a339-abadafd74190
 Content-Type: application/json
 
 {
@@ -18,10 +18,14 @@ Content-Type: application/json
     "isActive": "true"
 }
 ###
-PATCH http://localhost:3000/contact/8251c1f0-3035-4927-b7f4-68b148a2fc20
+PATCH http://localhost:3000/contact/e8ffaa7b-8476-4b7a-9927-e58ff58e98ea
 Content-Type: application/json
 
 {
     "name": "Fernanda Reis",
    "phone":"12vchjdbs"
 }
+
+####
+
+DELETE http://localhost:3000/contact/d7c40065-eef0-43b5-a0eb-f5e3d256ad04

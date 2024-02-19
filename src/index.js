@@ -1,12 +1,6 @@
 import express from "express";
 import cors from "cors";
-import {
-  createContacts,
-  deleteAContact,
-  patchAContact,
-  readContacts,
-  updateAContact,
-} from "./services/contacts-services.js";
+import contactRouter from "./router/contact-router.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -33,16 +27,7 @@ app.use(cors());
 //  Created = 201
 // }
 
-app.get("/contact", readContacts);
-
-app.post("/contact", createContacts);
-
-app.put("/contact/:id", updateAContact);
-
-app.patch("/contact/:id", patchAContact);
-
-app.delete("/contact/:id", deleteAContact);
-
+app.use(contactRouter);
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

@@ -19,7 +19,8 @@
   
 # Contact Book API
 
-API created for my classes ministered for my dear friend [@rodolphoreis](https://www.github.com/rodolphoreis) which we created a contact book api using arrays and your methods to manage data. 
+API created for the classes I taught to my dear friend [@rodolphoreis](https://www.github.com/rodolphoreis). The API we developed represents a contact book. We built it using arrays and their methods to manage the data.
+
 </div>
 
 ## API Documentation

@@ -47,7 +47,7 @@ API created for the classes I taught to my dear friend [@rodolphoreis](https://w
 #### Update a Contact
 
 ```http
-  PUT /contacts
+  PUT /contacts/:id
 ```
 
 | Parameter   | Type       | Description                                   |
@@ -59,7 +59,7 @@ API created for the classes I taught to my dear friend [@rodolphoreis](https://w
 #### Update on property of a Contact
 
 ```http
-  PATCH /contacts
+  PATCH /contacts/:id
 ```
 
 | Parameter   | Type       | Description                                   |
@@ -71,7 +71,7 @@ API created for the classes I taught to my dear friend [@rodolphoreis](https://w
 #### Delete a Contact
 
 ```http
-  DELETE /contacts
+  DELETE /contacts/:id
 ```
 
 | Parameter   | Type       | Description                                   |

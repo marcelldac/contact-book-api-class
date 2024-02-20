@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      # dockerfile: Dockerfile
+    command: "npm run dev"
+    environment:
+      - PORT=4000
+    ports:
+      - "3000:4000"
+    volumes:
+      - ./:/src/

@@ -1,10 +1,29 @@
+<h1 align="center">
+  <a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
+  <br>
+  <br>
+  <div>
+    <a href="https://github.com/marcelldac/contact-book-api-aula/issues">
+      <img src="https://img.shields.io/github/issues/marcelldac/contact-book-api-aula?color=fab387&labelColor=303446&style=for-the-badge">
+    </a>
+    <a href="https://github.com/marcelldac/contact-book-api-aula/stargazers">
+      <img src="https://img.shields.io/github/stars/marcelldac/contact-book-api-aula?color=ca9ee6&labelColor=303446&style=for-the-badge">
+    </a>
+    <a href="https://github.com/marcelldac/contact-book-api-aula">
+      <img src="https://img.shields.io/github/repo-size/marcelldac/contact-book-api-aula?color=ea999c&labelColor=303446&style=for-the-badge">
+    </a>
+  </div>
+</h1>
 
+<div align='center'>
+  
 # Contact Book API
 
-Made with Javascript and the Express lib for node.
-
+API created for my classes ministered for my dear friend [@rodolphoreis](https://www.github.com/rodolphoreis) which we created a contact book api using arrays and your methods to manage data. 
+</div>
 
 ## API Documentation
+
 
 #### Returns all contacts
 
@@ -20,15 +39,47 @@ Made with Javascript and the Express lib for node.
 
 | Parameter   | Type       | Description                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | Not present in body request 
 | `name`      | `string` | **Mandatory**. present in body request.|
 | `phone`      | `string` | **Mandatory**. present in body request.|
 | `isActive`      | `string` | **Mandatory**. present in body request.|
-| `updatedAt`      | `string - null` | Not present in body request.|
-| `createdAt`      | `string` | Not present in body request.|
 
+#### Update a Contact
 
-## Author
+```http
+  PUT /contacts
+```
+
+| Parameter   | Type       | Description                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`      | `string` | **Mandatory**. present in body request.|
+| `phone`      | `string` | **Mandatory**. present in body request.|
+| `isActive`      | `string` | **Mandatory**. present in body request.|
+
+#### Update on property of a Contact
+
+```http
+  PATCH /contacts
+```
+
+| Parameter   | Type       | Description                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`      | `string` | Present in body request.|
+| `phone`      | `string` |Present in body request.|
+| `isActive`      | `string` | Present in body request.|
+
+#### Delete a Contact
+
+```http
+  DELETE /contacts
+```
+
+| Parameter   | Type       | Description                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name`      | `string` | Present in body request.|
+| `phone`      | `string` |Present in body request.|
+| `isActive`      | `string` | Present in body request.|
+
+## Authors
 
 - [@marcelldac](https://www.github.com/marcelldac)
-
+- [@rodolphoreis](https://www.github.com/rodolphoreis)
